@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".SignUp">
+        <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Phone Number:"
+            android:textSize="34sp"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="5dp"/>
+
+        <EditText
+            android:id="@+id/edtPhone"
+            android:hint="e.g 0169124356"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@android:color/white"
+            android:textSize="34sp"
+            android:inputType="phone"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="150dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name:"
+        android:textSize="34sp"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="5dp"
+        android:layout_alignLeft="@+id/edtPhone"
+        android:layout_alignStart="@+id/edtPhone"
+        android:layout_below="@+id/edtPhone"/>
+
+        <EditText
+            android:id="@+id/edtName"
+            android:hint="e.g: John"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@android:color/white"
+            android:textSize="34sp"
+            android:inputType="text"
+            android:layout_alignLeft="@+id/edtPhone"
+            android:layout_alignStart="@+id/edtPhone"
+            android:layout_below="@+id/edtPhone"
+            android:layout_marginTop="35dp"
+            android:gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Password:"
+        android:textSize="34sp"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="5dp"
+        android:layout_alignLeft="@+id/edtName"
+        android:layout_alignStart="@+id/edtName"
+        android:layout_below="@+id/edtName"/>
+
+        <EditText
+            android:id="@+id/edtPassword"
+            android:hint="e.g: 11234"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@android:color/white"
+            android:textColor="@android:color/white"
+            android:textSize="34sp"
+            android:layout_alignLeft="@+id/edtName"
+            android:layout_alignStart="@+id/edtName"
+            android:layout_below="@+id/edtName"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="35dp"/>
+
+
+    <Button
+        android:id="@+id/btnSignUp"
+        android:text="Sign Up"
+        android:textColor="@android:color/white"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_margin="8dp"
+        android:layout_height="wrap_content"
+        android:background="@color/btnSignUp"></Button>
+
+</RelativeLayout>
