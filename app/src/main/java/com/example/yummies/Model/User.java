@@ -1,6 +1,6 @@
-package com.example.yummies;
+package com.example.yummies.Model;
 
-class User {
+public class User {
     private String Name;
     private String Password;
 
