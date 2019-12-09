@@ -17,10 +17,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.rey.material.widget.CheckBox;
+
+import io.paperdb.Paper;
 
 public class SignIn extends AppCompatActivity {
     EditText edtPassword, edtPhone;
     Button btnSignIn;
+    CheckBox ckbRemember;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,10 @@ public class SignIn extends AppCompatActivity {
         edtPassword=(EditText)findViewById(R.id.edtPassword);
         edtPhone=(EditText)findViewById(R.id.edtPhone);
         btnSignIn=(Button)findViewById(R.id.btnSignIn);
+        ckbRemember=(CheckBox)findViewById(R.id.ckbRemember);
+
+        //init paper
+        Paper.init(this);
 
         //initialise firebase
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -39,7 +47,14 @@ public class SignIn extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (!Common.isConnectToInternet(getBaseContext())) {
+                if (Common.isConnectToInternet(getBaseContext())) {
+
+                    //save user  & password
+                    if(ckbRemember.isChecked())
+                    {
+                        Paper.book().write(Common.USER_KEY,edtPhone.getText().toString());
+                        Paper.book().write(Common.PWD_KEY,edtPassword.getText().toString()) ;
+                    }
 
                     final ProgressDialog mDialog = new ProgressDialog(SignIn.this);
                     mDialog.setMessage("Please waiting....");

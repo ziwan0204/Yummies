@@ -38,6 +38,19 @@
             android:gravity="center_horizontal" />
 
 
+    <com.rey.material.widget.CheckBox
+        android:id="@+id/ckbRemember"
+        style="@style/Material.Drawable.CheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:layout_marginLeft="40dp"
+        android:text="Remember me"
+        android:gravity="center_vertical"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:buttonTint="@android:color/white"/>
+
     <Button
         android:id="@+id/btnSignIn"
         android:text="Sign In"
