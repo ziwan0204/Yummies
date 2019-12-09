@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.yummies.Common.Common;
 import com.example.yummies.Model.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -38,6 +39,8 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                if(Common.isConnectToInternet(getBaseContext())){
+
                 final ProgressDialog mDialog = new ProgressDialog(SignUp.this);
                 mDialog.setMessage("Please waiting....");
                 mDialog.show();
@@ -66,7 +69,11 @@ public class SignUp extends AppCompatActivity {
 
                     }
                 });
-
+            }
+                else {
+                    Toast.makeText(SignUp.this, "Please check your connection!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
             }
         });
     }

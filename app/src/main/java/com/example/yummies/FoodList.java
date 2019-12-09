@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.yummies.Common.Common;
 import com.example.yummies.Interface.ItemClickListener;
 import com.example.yummies.Model.Food;
 import com.example.yummies.ViewHolder.FoodViewHolder;
@@ -49,7 +50,13 @@ public class FoodList  extends AppCompatActivity {
             categoryId= getIntent().getStringExtra("CategoryId");
         if( !categoryId.isEmpty() && categoryId != null)
         {
+            if(Common.isConnectToInternet(getBaseContext()))
             loadListFood(categoryId);
+            else
+            {
+                Toast.makeText(FoodList.this,"Please check your connection!", Toast.LENGTH_SHORT).show();
+                return;
+            }
         }
 
     }

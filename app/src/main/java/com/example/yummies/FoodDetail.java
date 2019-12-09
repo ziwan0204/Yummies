@@ -10,6 +10,7 @@ import android.widget.Toast;
 import android.widget.Button;
 
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
+import com.example.yummies.Common.Common;
 import com.example.yummies.Database.Database;
 import com.example.yummies.Model.Food;
 import com.example.yummies.Model.Order;
@@ -80,7 +81,13 @@ public class FoodDetail extends AppCompatActivity {
             foodId = getIntent().getStringExtra("FoodId");
         if(!foodId.isEmpty())
         {
+            if(Common.isConnectToInternet(getBaseContext()))
             getDetailFood(foodId);
+            else
+            {
+                Toast.makeText(FoodDetail.this,"Please check your connection!", Toast.LENGTH_SHORT).show();
+                return;
+            }
         }
     }
 
