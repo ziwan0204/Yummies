@@ -38,18 +38,38 @@
             android:gravity="center_horizontal" />
 
 
-    <com.rey.material.widget.CheckBox
-        android:id="@+id/ckbRemember"
-        style="@style/Material.Drawable.CheckBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
-        android:layout_marginLeft="40dp"
-        android:text="Remember me"
-        android:gravity="center_vertical"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        android:buttonTint="@android:color/white"/>
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       android:weightSum="2">
+
+       <com.rey.material.widget.CheckBox
+           android:id="@+id/ckbRemember"
+           style="@style/Material.Drawable.CheckBox"
+           android:layout_width="0dp"
+           android:layout_weight="1"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="400dp"
+           android:layout_marginLeft="20dp"
+           android:text="Remember me"
+           android:gravity="center_vertical"
+           android:textColor="@android:color/white"
+           android:textSize="20sp"
+           android:buttonTint="@android:color/white"/>
+
+       <TextView
+           android:id="@+id/txtForgotPwd"
+           android:textColor="@android:color/white"
+           android:text="@string/forgot_pwd"
+           android:layout_weight="1"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content"
+           android:textSize="20sp"
+           android:layout_marginTop="400dp"
+           android:layout_marginLeft="20dp"/>
+
+   </LinearLayout>
 
     <Button
         android:id="@+id/btnSignIn"

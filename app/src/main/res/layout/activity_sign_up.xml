@@ -64,19 +64,45 @@
         android:layout_alignStart="@+id/edtName"
         android:layout_below="@+id/edtName"/>
 
-        <EditText
-            android:id="@+id/edtPassword"
-            android:hint="e.g: 11234"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColorHint="@android:color/white"
-            android:textColor="@android:color/white"
-            android:textSize="34sp"
-            android:layout_alignLeft="@+id/edtName"
-            android:layout_alignStart="@+id/edtName"
-            android:layout_below="@+id/edtName"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="35dp"/>
+    <EditText
+        android:id="@+id/edtPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtName"
+        android:layout_alignStart="@+id/edtName"
+        android:layout_alignLeft="@+id/edtName"
+        android:layout_marginStart="3dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center_horizontal"
+        android:hint="e.g: 11234"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        android:textSize="34sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtName"
+        android:layout_alignStart="@+id/edtName"
+        android:layout_alignLeft="@+id/edtName"
+        android:layout_marginStart="-2dp"
+        android:layout_marginLeft="-2dp"
+        android:layout_marginTop="105dp"
+        android:text="Secure Code:"
+        android:textColor="@android:color/white"
+        android:textSize="34sp" />
+
+    <EditText
+        android:id="@+id/edtSecureCode"
+        android:hint="e.g: 123"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@android:color/white"
+        android:textSize="34sp"
+        android:inputType="phone"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="460dp" />
 
 
     <Button

@@ -18,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class SignUp extends AppCompatActivity {
-    EditText edtPhone,edtPassword,edtName;
+    EditText edtPhone,edtPassword,edtName,edtSecureCode;
     Button btnSignUp;
 
     @Override
@@ -29,6 +29,8 @@ public class SignUp extends AppCompatActivity {
         edtName = (EditText)findViewById(R.id.edtName);
         edtPassword = (EditText)findViewById(R.id.edtPassword);
         edtPhone=(EditText)findViewById(R.id.edtPhone);
+        edtSecureCode=(EditText)findViewById(R.id.edtSecureCode);
+
         btnSignUp=(Button)findViewById(R.id.btnSignUp);
 
         //initialise firebase
@@ -56,7 +58,9 @@ public class SignUp extends AppCompatActivity {
                         else
                         {
                             mDialog.dismiss();
-                            User user = new User(edtName.getText().toString(),edtPassword.getText().toString());
+                            User user = new User(edtName.getText().toString(),
+                                    edtPassword.getText().toString(),
+                                    edtSecureCode.getText().toString());
                             table_user.child(edtPhone.getText().toString()).setValue(user);
                             Toast.makeText(SignUp.this, "You have signed up successfully", Toast.LENGTH_SHORT).show();
                             finish();

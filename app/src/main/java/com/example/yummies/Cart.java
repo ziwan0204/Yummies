@@ -52,7 +52,7 @@ public class Cart extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference requests;
 
-    TextView txtTotalPrice;
+    public  TextView txtTotalPrice;
     Button btnPlace;
 
     List<Order> cart = new ArrayList<>();
@@ -60,10 +60,11 @@ public class Cart extends AppCompatActivity {
     CartAdapter adapter;
 
     //paypal payment
-    static PayPalConfiguration config=new PayPalConfiguration().environment(PayPalConfiguration.ENVIRONMENT_SANDBOX)
+    static PayPalConfiguration config=new PayPalConfiguration()
+            .environment(PayPalConfiguration.ENVIRONMENT_SANDBOX)
             .clientId(Config.PAYPAL_CLIENT_ID);
 
-    String address,comment; //
+    String address;
 
 
     @Override
@@ -128,9 +129,15 @@ public class Cart extends AppCompatActivity {
                 //show paypal to payment
                 address  = edtAddress.getText().toString();
 
-                String  formatAmount = txtTotalPrice.getText().toString().replace("$","").replace(",","");
 
-                PayPalPayment payPalPayment= new PayPalPayment(new BigDecimal(formatAmount),  "RM",  "Yummies Order",  PayPalPayment.PAYMENT_INTENT_SALE);
+                String  formatAmount = txtTotalPrice.getText().toString()
+                        .replace("$","")
+                        .replace(",","");
+
+                PayPalPayment payPalPayment= new PayPalPayment(new BigDecimal(formatAmount),
+                        "USD",
+                        "Yummies Order",
+                        PayPalPayment.PAYMENT_INTENT_SALE);
                 Intent intent=new Intent(getApplicationContext(), PaymentActivity.class);
                 intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION,config);
                 intent.putExtra(PaymentActivity.EXTRA_PAYMENT,payPalPayment);
@@ -151,7 +158,7 @@ public class Cart extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode,  Intent data) {
-super.onActivityResult(requestCode, resultCode,data);
+        super.onActivityResult(requestCode, resultCode,data);
        if(requestCode ==PAYPAL_REQUEST_CODE)
        {
            if(resultCode==RESULT_OK)
@@ -182,14 +189,15 @@ super.onActivityResult(requestCode, resultCode,data);
                        //delete cart
                        new Database(getBaseContext()).cleanCart();
 
-                       Toast.makeText(Cart.this,"Thank you , Order Place", Toast.LENGTH_SHORT).show();
+                       Toast.makeText(Cart.this,"Thank you , your oder has been successfully placed", Toast.LENGTH_SHORT).show();
                        finish();
+
                    }catch (JSONException e){
                        e.printStackTrace();
                    }
                }
            }
-           else if (resultCode== Activity.RESULT_CANCELED)
+           else if (resultCode==Activity.RESULT_CANCELED)
                Toast.makeText(this,"Payment cancel",Toast.LENGTH_SHORT).show();
            else if (resultCode==PaymentActivity.RESULT_EXTRAS_INVALID)
                Toast.makeText(this,"Invalid payment",Toast.LENGTH_SHORT).show();
