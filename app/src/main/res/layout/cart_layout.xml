@@ -49,6 +49,7 @@
             android:id="@+id/cart_item_count"
             android:layout_width="20dp"
             android:layout_height="20dp"/>
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
